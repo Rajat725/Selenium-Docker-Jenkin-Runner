@@ -12,7 +12,7 @@ stage("Running Grid"){
     steps{bat "docker-compose -f grid.yaml up --scale ${params.BROWSER}=2 -d"}
 }
 stage("Running Tests"){
-    steps{bat "docker-compose -f test-suites.yaml up"}
+    steps{bat "docker-compose -f test-suites.yaml up --pull=always"}
 }
 
 
