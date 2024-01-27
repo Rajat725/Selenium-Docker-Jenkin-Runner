@@ -3,7 +3,7 @@ services:
   Rajat-portal:
     image: rajat725/sel:latest
     environment:
-    - BROWSER=chrome
+    - BROWSER=${BROWSER}
     - HUB=hub
     - TESTNGXML=testng.xml
     volumes:

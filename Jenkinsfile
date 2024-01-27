@@ -1,10 +1,15 @@
 pipeline{
     agent any
 
+    parameters {
+  choice choices: ['CHROME'], description: 'Please select the browser', name: 'BROWSER'
+}
+
+
 stages{
 
 stage("Running Grid"){
-    steps{bat "docker-compose -f grid.yaml up -d"}
+    steps{bat "docker-compose -f grid.yaml up --scale ${params.BROWSER}=2 -d"}
 }
 stage("Running Tests"){
     steps{bat "docker-compose -f test-suites.yaml up"}
