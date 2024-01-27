@@ -1,0 +1,12 @@
+version: "3"
+services:
+  Rajat-portal:
+    image: rajat725/sel:latest
+    environment:
+    - BROWSER=chrome
+    - HUB=hub
+    - TESTNGXML=testng.xml
+    volumes:
+    - ./output/Rajat-portal:/home/selenium-docker/test-output 
+  
+  
